@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_01_162022) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_01_171233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_01_162022) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lessons", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.string "title"
+    t.text "content"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_lessons_on_course_id"
+  end
+
+  create_table "progresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.boolean "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_progresses_on_lesson_id"
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -30,4 +50,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_01_162022) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
+  add_foreign_key "lessons", "courses"
+  add_foreign_key "progresses", "lessons"
+  add_foreign_key "progresses", "users"
 end
