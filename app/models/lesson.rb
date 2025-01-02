@@ -7,4 +7,5 @@ class Lesson < ApplicationRecord
   has_many :users, through: :progresses
 
   validates :title, presence: true, uniqueness: { scope: :course_id }
+  validates :content, presence: true
 end
