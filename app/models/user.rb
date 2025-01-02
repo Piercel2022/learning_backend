@@ -10,4 +10,6 @@ class User < ApplicationRecord
    # Associations
   has_many :progresses
   has_many :lessons, through: :progresses
+
+  validates :name, presence: true
 end
