@@ -5,5 +5,5 @@ class Progress < ApplicationRecord
 
   # Validations
   validates :user_id, uniqueness: { scope: :lesson_id, message: 'can only track progress once per lesson' }
-  validates :completed, inclusion: { in: [true, false] }
+  validates :status, inclusion: { in: %w[incomplete complete] }
 end
