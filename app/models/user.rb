@@ -3,7 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
-         
+
    # Constants for roles
    ROLES = %w[apprenant admin].freeze
+
+   # Associations
+  has_many :progresses
+  has_many :lessons, through: :progresses
 end
