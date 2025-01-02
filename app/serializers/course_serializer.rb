@@ -1,3 +1,5 @@
 class CourseSerializer < ActiveModel::Serializer
-  attributes :id
+  include JSONAPI::Serializer
+  attributes :id, :title, :description
+  has_many :lessons
 end
