@@ -90,25 +90,25 @@ puts "Creating progress records..."
 Progress.create!(
   user: learner1,
   lesson: lesson1,
-  completed: true
+  status: "complete"
 )
 
 Progress.create!(
   user: learner1,
   lesson: lesson2,
-  completed: false
+  status: "incomplete"
 )
 
 Progress.create!(
   user: learner2,
   lesson: lesson3,
-  completed: true
+  status: "complete"
 )
 
 Progress.create!(
   user: learner2,
   lesson: lesson4,
-  completed: false
+  status: "incomplete"
 )
 
 puts "Seeding complete!"

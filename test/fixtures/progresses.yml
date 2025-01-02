@@ -3,9 +3,9 @@
 one:
   user: one
   lesson: one
-  completed: false
+  status: MyString
 
 two:
   user: two
   lesson: two
-  completed: false
+  status: MyString

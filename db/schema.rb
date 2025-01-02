@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_02_141050) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_02_213805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -37,7 +37,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_141050) do
   create_table "progresses", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "lesson_id", null: false
-    t.boolean "completed"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_id"], name: "index_progresses_on_lesson_id"
