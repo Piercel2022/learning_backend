@@ -15,7 +15,14 @@ module RubyLearningPlatform
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+    config.assets.paths << Rails.root.join("app", "assets")
+    config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
+    config.assets.cache_store = :file_store, "#{Rails.root}/tmp/new_cache"
 
+    config.assets.configure do |env|
+      env.cache = Sprockets::Cache::FileStore.new("C:/RubyLearningPlatform/cache/assets")
+    end
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

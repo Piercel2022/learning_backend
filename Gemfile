@@ -22,6 +22,8 @@ gem "jbuilder"
 
 gem "devise-jwt"
 
+gem "sprockets", "~> 4.1"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -43,7 +45,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "activeadmin"
-
+gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -67,3 +69,7 @@ group :test do
 end
 
 gem "active_model_serializers", "~> 0.10.15"
+
+gem "jsbundling-rails", "~> 1.3"
+
+gem "cssbundling-rails", "~> 1.4"
